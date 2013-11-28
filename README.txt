@@ -54,12 +54,11 @@ make update-pressflow7 dir=
   do NOT guarantee this to work for everyone, but it works for us on our VMs and OSX development
   boxes.
 
-make install-ready-base dir= u= p= db=
-mysql://$dbUser:$dbPassword@$dbHost/$dbName
+make install-ready-base dir= u= p= db= uri=
   This will pull git@github.com:kirikintha/pressflow7_ready_base.git, cd to the directory you
   have specified, and start the install process. You MUST set up your database first, and also
   provide a uri, so that we can make sure that the installation will complete properly. Also,
-  as of this version we only allow you use localhost.
+  as of this version we only allow you use localhost and mysql, sorry.
 
 @TODO
 make restore backup= dir=
