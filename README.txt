@@ -20,13 +20,16 @@ because we use this in development environments and then use other methods to de
 We do not encourage you to put this on a production server, we would rather that you use this for ease for development only.
 
 ##Usage
-As with any make file, we have a number of methods you can use. We do not include normal 
-drush operations in our make files, so you will be responsible for your own updates.
+As with any make file, we have a number of methods you can use. We do not use many drush commands
+here, so this is NOT a replacement for drush. We love drush, use it as it is intended.
 
 ##Methods
 
 make help
   This will show you the following methods.
+
+make diag
+  This will run drush self-update, and show you the latest version
 
 make maintenance dir=
   This covers fixing files permission on Drupal installs, and also locking down the settings.php file.
@@ -51,7 +54,12 @@ make update-pressflow7 dir=
   do NOT guarantee this to work for everyone, but it works for us on our VMs and OSX development
   boxes.
 
-make install-ready-base dir=
+make install-ready-base dir= u= p= db=
+mysql://$dbUser:$dbPassword@$dbHost/$dbName
+  This will pull git@github.com:kirikintha/pressflow7_ready_base.git, cd to the directory you
+  have specified, and start the install process. You MUST set up your database first, and also
+  provide a uri, so that we can make sure that the installation will complete properly. Also,
+  as of this version we only allow you use localhost.
 
 @TODO
 make restore backup= dir=
