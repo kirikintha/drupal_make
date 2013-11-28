@@ -39,11 +39,12 @@ make create-pressflow7 dir=
   This will run a drush make command, that will pull down the latest pressflow 7 and also a
   list of common modules that we use in our Drupal installs. This will NOT install drupal,
   but is a fantastic way to easily get the modules and core libraries you need to make your
-  own install. Also note, that we do not like using contributed themes, with the exception of the
-  "bootstrap" theme. https://drupal.org/project/bootstrap - Bootstrap 3, in our opinion is
-  a very very good theme and while it is not perfect for Drupal, it solves more problems then
+  own install. Also note, that we only recommend a few theme, one of them being the "bootstrap" theme. 
+  https://drupal.org/project/bootstrap - Bootstrap 3, in our opinion is
+  a very very good framework and while it is not perfect for Drupal, it solves more problems then
   it creates. Not that we're telling you what to do, by any means, so this just covers modules
-  and of course you can change this however you wish.
+  and of course you can change this however you wish. We do our best to roll our own themes
+  whenever possible.
 
 make update-pressflow7 dir=
   drush up drupal (or drush up) AFAWK do not look for a pressflow core. We tried a number of
@@ -58,7 +59,8 @@ make install-ready-base dir= u= p= db= uri=
   This will pull git@github.com:kirikintha/pressflow7_ready_base.git, cd to the directory you
   have specified, and start the install process. You MUST set up your database first, and also
   provide a uri, so that we can make sure that the installation will complete properly. Also,
-  as of this version we only allow you use localhost and mysql, sorry.
+  as of this version we only allow you use localhost and mysql, sorry. NOTE: This also sets the
+  admin theme to 'shiny' which is another theme we like.
 
 @TODO
 make restore backup= dir=
