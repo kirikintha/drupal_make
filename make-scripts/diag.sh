@@ -1,7 +1,7 @@
 #!/bin/bash
 # Maintenance will run through permissions files, etc and fix any permissions errors
 # Usage: make maintenance dir=
-source $(dirname $0)/init.sh
+source $(dirname $0)/color.sh
 
 out "Checking Drush" 'info'
 drush self-update
