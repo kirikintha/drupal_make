@@ -1,0 +1,37 @@
+#Main Ignore Items.
+.DS_Store
+/tags
+*.komodoproject
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Packages
+*.7z
+*.dmg
+*.gz
+!/install/*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs
+*.log
+
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+.project
+.settings/com.aptana.editor.php.prefs
+.settings/org.eclipse.ltk.core.refactoring.prefs
+
+#End ignore.
