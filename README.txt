@@ -55,12 +55,15 @@ make update-pressflow7 dir=
   do NOT guarantee this to work for everyone, but it works for us on our VMs and OSX development
   boxes.
 
-make install-ready-base dir= u= p= db= uri=
+make install-ready-base dir= uri=
   This will pull git@github.com:kirikintha/pressflow7_ready_base.git, cd to the directory you
   have specified, and start the install process. You MUST set up your database first, and also
   provide a uri, so that we can make sure that the installation will complete properly. Also,
-  as of this version we only allow you use localhost and mysql, sorry. NOTE: This also sets the
-  admin theme to 'shiny' which is another theme we like.
+  as of this version we only allow you use mysql, sorry. NOTE: This also sets the
+  admin theme to 'shiny' which is another theme we like. Please follow all the prompts, you are
+  really just saying yes to the prompts, so that features are installed, caches are cleared and
+  the site builds correctly. You will also have a log file when you are finished, that has your
+  admin user with a randomly generated password. 
 
 @TODO
 make restore backup= dir=
