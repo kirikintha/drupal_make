@@ -4,23 +4,19 @@
 source $(dirname $0)/init.sh
 source $(dirname $0)/update-permissions.sh
 
-DB_URL="mysql://$2:$3@localhost/$4"
+read -p "Enter Database: " DB
+read -p "Enter Database Host: " DB_HOST
+read -p "Enter Database User Name: " DB_USER
+read -s -p "Enter Database Password: " DB_PASS
+
+DB_URL="mysql://$DB_USER:$DB_PASS@$DB_HOST/$DB"
 
 FULLDATE=`date`
 DATE=`date +%m-%d-%Y-%H%M%S`
 LOG=../install-$DATE.log
 
-#Check for DB pre-requisites.
-if [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ]
-  then
-    out "Invalid db parameters supplied. You must have a user, password and database added." 'error'
-    exit 0
-  else
-    out "DB check complete." 'success'
-fi
-
 #Check for URI pre-requisite
-if [ -z "$5" ]
+if [ -z "$2" ]
   then
     out "URI missing. You must have a functioning web server to make an install." 'error'
     exit 0
@@ -57,13 +53,13 @@ if [ $? -eq 0 ]
                       drush vset --exact admin_theme shiny
                       #Update Configuration and flush all caches.
                       out "Enable pressflow_7_ready_base by choosing 'yes' (y) to the next prompts." 'info'
-                      drush en pressflow_7_ready_base --uri=$5
+                      drush en pressflow_7_ready_base --uri=$2
                       out "Clear All caches by selecting 'all' (1)." 'info'
-                      drush cache-clear --uri=$5
+                      drush cache-clear --uri=$2
                       out "Running cron." 'info'
-                      drush core-cron --uri=$5
+                      drush core-cron --uri=$2
                       out "Refreshing update list." 'info'
-                      drush pm-refresh --uri=$5
+                      drush pm-refresh --uri=$2
                       out "All installation tasks finished for: $1" 'success'
                       out "You are not finished yet!" 'warning'
                       out "1. Make sure that you check $LOG."

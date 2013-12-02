@@ -47,7 +47,7 @@ restore:
 	
 #------------------------------------------------------------------------------
 # Download and install the latest pressflow version.
-# Usage: make install-ready-base dir=%my-absolute-directory u=%mydbuser p=%mydbpassword db=%mydb uri=%myuri
+# Usage: make install-ready-base dir=%my-absolute-directory uri=%myuri
 #------------------------------------------------------------------------------
 install-ready-base:
 	@bash make-scripts/install.sh $(dir) $(u) $(p) $(db) $(uri)
