@@ -21,9 +21,9 @@ function out {
     "error")
     echo -e "\033[0;31m$DATE - $1\033[0m"
     ;;
-    #Black Default
+    #Default
     *)
-    echo -e "\033[0;30m$DATE - $1\033[0m"
+    echo -e "$DATE - $1"
   esac
   
 }
