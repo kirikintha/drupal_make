@@ -5,6 +5,7 @@ function updatePermissions {
   read CHOWNINFO
 
   sudo chown -R $CHOWNINFO $1/sites/default/files
+  sudo chmod -v -v 755 $1/sites/default
   sudo chmod -R g+ws $1/sites/default/files
 
   # Make sure nothing went wrong, and then look for file permissions.
@@ -20,6 +21,6 @@ function updatePermissions {
 
   #Set protect permissions for settings.php
   out "Protecting settings.php" 'info'
-  chmod -v -v 444 $1/sites/default/settings.php
+  sudo chmod -v -v 444 $1/sites/default/settings.php
 
 }
