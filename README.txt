@@ -48,14 +48,21 @@ make create-pressflow7 dir=
   and of course you can change this however you wish. We do our best to roll our own themes
   whenever possible.
 
-make update-pressflow7 dir=
+make update-pressflow7 dir= uri=
   drush up drupal (or drush up) AFAWK do not look for a pressflow core. We tried a number of
   different drush make scenarios, but could not get a Pressflow 7 core to update properly. So,
-  we created a way to download the latest pressflow core, and rsync it to your directory of choice.
-  Just because we are paranoid, we also put a backup under ~/drush-backups/pressflow_7_update so
-  you can have a way to restore your update, just in case things blow up in your face. We absolutely
+  we created a way to download the latest pressflow core, rsync it to your directory of choice and
+  clears the site cache. Just because we are paranoid, we also put a backup under ~/drush-backups/pressflow_7_update so
+  you can have a way to restore your core, just in case things blow up in your face. We absolutely
   do NOT guarantee this to work for everyone, but it works for us on our VMs and OSX development
   boxes.
+
+make update-pressflow7-features dir= uri=
+  drush up does not include our ready base features module, so this specifically allows you to update
+  this module. This does not update the pressflow core, nor is it a substitute to drush up. Just like
+  make update-pressflow7, this will rsync to your directory, and then clear the caches of the site.
+  Just because we are paranoid, we also put a backup under ~/drush-backups/features_update so
+  you can have a way to restore your module, just in case.
 
 make install-ready-base dir= uri=
   This will pull git@github.com:kirikintha/pressflow7_ready_base.git, cd to the directory you
