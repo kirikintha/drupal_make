@@ -54,8 +54,8 @@ if [ $? -eq 0 ]
                       out "Updating admin theme to 'shiny'." 'info'
                       drush vset --exact admin_theme shiny
                       #Update Configuration and flush all caches.
-                      out "Enable features for ready base by choosing 'yes' (y) to the next prompts." 'info'
-                      drush en features_pressflow_7_ready_base --uri=$2
+                      out "Enabling features for ready base." 'info'
+                      drush en features_pressflow_7_ready_base --uri=$2 --yes
                       out "Clear All caches by selecting 'all' (1)." 'info'
                       drush cache-clear --uri=$2
                       out "Running cron." 'info'
