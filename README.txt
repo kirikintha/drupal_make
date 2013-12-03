@@ -7,6 +7,8 @@ Remember: Use this at your own risk, no warranty is implied. Always test first!
 
 ##Dependencies
 make, git, drush and any other pre-requisites from Drupal and LAMP.
+Need help with drush commands? Use this:
+https://groups.drupal.org/node/28088
 
 ##Limitations
 This meant to be used to create a Pressflow 7 site. We use Pressflow 7 exclusively, and do
