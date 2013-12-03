@@ -1,7 +1,7 @@
 #!/bin/bash
 # This is the function that runs maintenance.sh and is used in install.
 function updatePermissions {
-  out "Enter user:group for $1/sites/default/files/ directory" 'info'
+  out "Enter user:group for $1/sites/default/files/ directory"
   read CHOWNINFO
 
   sudo chown -R $CHOWNINFO $1/sites/default/files

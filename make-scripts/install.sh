@@ -13,7 +13,7 @@ DB_URL="mysql://$DB_USER:$DB_PASS@$DB_HOST/$DB"
 
 FULLDATE=`date`
 DATE=`date +%m-%d-%Y-%H%M%S`
-LOG=../install-$DATE.log
+LOG=../install-$2-$DATE.log
 
 #Check for URI pre-requisite
 if [ -z "$2" ]
@@ -26,6 +26,7 @@ fi
 
 #Create Ready Base
 out "Starting install, retrieving ready base." 'info'
+#@TODO - check out not cloning, but just pulling this down.
 git clone git@github.com:kirikintha/pressflow7_ready_base.git $1
 
 #Move into the directory, and run drush install
@@ -34,6 +35,7 @@ if [ $? -eq 0 ]
         clear
         out "Ready base downloaded, starting install process" 'success'
         cd $1
+        rm -rf .git
         out "Using DB: $DB_URL" 'success'
         #This works for mysql on localhost only sorry!
         drush site-install -y minimal --db-url=$DB_URL 2>$LOG
@@ -52,8 +54,8 @@ if [ $? -eq 0 ]
                       out "Updating admin theme to 'shiny'." 'info'
                       drush vset --exact admin_theme shiny
                       #Update Configuration and flush all caches.
-                      out "Enable pressflow_7_ready_base by choosing 'yes' (y) to the next prompts." 'info'
-                      drush en pressflow_7_ready_base --uri=$2
+                      out "Enable features for ready base by choosing 'yes' (y) to the next prompts." 'info'
+                      drush en features_pressflow_7_ready_base --uri=$2
                       out "Clear All caches by selecting 'all' (1)." 'info'
                       drush cache-clear --uri=$2
                       out "Running cron." 'info'

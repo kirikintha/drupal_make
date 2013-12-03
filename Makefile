@@ -36,7 +36,14 @@ create-pressflow7:
 # Usage: make update-pressflow7 dir=%my-absolute-directory
 #------------------------------------------------------------------------------
 update-pressflow7:
-	@bash make-scripts/update-pressflow7.sh $(dir)
+	@bash make-scripts/update-pressflow7.sh $(dir) $(uri)
+
+#------------------------------------------------------------------------------
+# Update the latest ready base features module.
+# Usage: make update-pressflow7-features dir=%my-absolute-directory
+#------------------------------------------------------------------------------
+update-pressflow7-features:
+	@bash make-scripts/update-pressflow7-features.sh $(dir) $(uri)
 	
 #------------------------------------------------------------------------------
 # Restore A Backed up directory. This is the global nuclear option.
