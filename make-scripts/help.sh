@@ -14,3 +14,6 @@ out "make update-pressflow7 dir=%my-absolute-directory uri=%myuri"
 out "Update Ready Base Features. Since you cannot use drush to update the features module, this replace that functionality." 'info'
 out "make update-pressflow7-features dir=%my-absolute-directory uri=%myuri"
 out "make install-ready-base dir=%my-absolute-directory uri=%myuri"
+out "make import gz=%my-sql-export.sql.gz"
+out "make export"
+out "make rebuild-permissions dir=%my-absolute-directory uri=%myuri"

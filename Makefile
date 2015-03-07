@@ -58,3 +58,19 @@ restore:
 #------------------------------------------------------------------------------
 install-ready-base:
 	@bash make-scripts/install.sh $(dir) $(u) $(p) $(db) $(uri)
+	
+#------------------------------------------------------------------------------
+# data import/export
+#------------------------------------------------------------------------------
+import:
+	@sudo make-scripts/import.sh $(gz)
+
+export:
+	@sudo make-scripts/export.sh
+	
+#------------------------------------------------------------------------------
+# Update the latest ready base features module.
+# Usage: make rebuild-permissions dir=%my-absolute-directory
+#------------------------------------------------------------------------------
+rebuild-permissions:
+	@bash make-scripts/rebuild-permissions.sh $(dir) $(uri)
